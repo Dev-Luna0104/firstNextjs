@@ -167,3 +167,43 @@ export default function Page() {
 
         DesdeusePathname()é um gancho, você precisará transformá-lo nav-links.tsx em um componente cliente. 
         Adicione a diretiva do React "use client"ao topo do arquivo e importe usePathname() de next/navigation:
+
+        =---------= capitolo 6 =========================================================================================================
+        - Configurando seu banco de dados =====================================================================
+
+
+        Antes de continuar trabalhando em seu painel, você precisará de alguns dados. 
+        Neste capítulo, você configurará um banco de dados PostgreSQL usando @vercel/postgres. 
+        Se você já conhece o PostgreSQL e prefere usar seu próprio provedor, pode pular este capítulo e configurá-lo por conta própria. 
+        Caso contrário, vamos continuar!
+
+        - Conecte e implante seu projeto no Vercel
+
+        - Crie um banco de dados Postgres
+        Em seguida, para configurar um banco de dados, 
+        clique em Continuar para o painel e selecione a guia Armazenamento no painel do projeto. 
+        Selecione Connect Store → Criar novo → Postgres → Continuar .
+
+        Uma vez conectado, navegue até a .env.local guia, 
+        clique em Mostrar segredo e Copiar trecho . 
+        Certifique-se de revelar os segredos antes de copiá-los.
+
+        Navegue até o seu editor de código e renomeie o .env.example arquivo para .env . 
+        Cole o conteúdo copiado do Vercel.
+
+        Importante: Vá para o seu .gitignore arquivo e certifique-se de que .envele esteja nos arquivos ignorados 
+        para evitar que os segredos do seu banco de dados sejam expostos quando você enviar para o GitHub.
+
+        Por fim, execute npm i @vercel/postgres em seu terminal para instalar o Vercel Postgres SDK.
+
+        - Semeie seu banco de dados
+        Agora que seu banco de dados foi criado, vamos semeá-lo com alguns dados iniciais. 
+        Isso permitirá que você tenha alguns dados para trabalhar enquanto cria o painel.
+
+        Na /scripts pasta do seu projeto existe um arquivo chamado seed.js . 
+        Este script contém as instruções para criar e propagar as tabelas invoices, customers, user, revenue .
+
+        Não se preocupe se você não entender tudo o que o código está fazendo, 
+        mas para lhe dar uma visão geral, 
+        o script usa SQL para criar as tabelas e os dados do placeholder-data.js 
+        arquivo para preenchê-las depois de criadas.
